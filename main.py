@@ -1,4 +1,19 @@
-from methods import *
+from URLissue import *
+from pymongo import MongoClient
+
+# Establishing connection with database
+try:
+	client = MongoClient('mongodb://127.0.0.1:27017/')
+except:
+	print("Could not connect to MongoDB")
+
+
+# Access database
+urldb = client['Shorted_URL_list']
+
+# Access collection of the database
+urllist = urldb.urls
+
 
 #creating a instance of the URLShortener method
 nb_shortener = URLShortener()
@@ -19,6 +34,5 @@ while True:
 
 	#updating dict after every iteration
 	dict_obj[sort_url] = url
-
-#print list of shorten url
 print(dict_obj)
+mongoUrlList = urllist.insert_one(dict_obj)
