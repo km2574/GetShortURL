@@ -15,7 +15,7 @@ class URLShortener:
             # next url
             self.id += 1
         
-        return "nb_url.com/"+shortenUrl
+        return "nb_urlU+FF0Ecom/"+shortenUrl
     
     def encode(self, id):
         # shortening algorithm will be Base 62 encoding
